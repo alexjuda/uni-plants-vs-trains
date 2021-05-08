@@ -16,8 +16,6 @@ public class instrybutor : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(float delta)
 	{
-		GD.Print("huj");
-		Console.WriteLine("dupa -------------------");
-//		this.global_position;
+		GD.Print(GlobalPosition);
 	}
 }
