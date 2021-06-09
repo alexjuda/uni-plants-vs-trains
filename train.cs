@@ -18,10 +18,11 @@ public class train : Area2D
   public override void _Process(float delta)
   {
 //	var pos = this.pathFollow.GetGlobalPosition();
-	var speed = 100.0f;
+	var speed = 200.0f;
 	this.pathFollow.Offset = this.pathFollow.Offset + speed * delta;
 //	var pos = this.pathFollow.GetGlobalPosition();
-//	var other = GetNode<Area2D>("/root/Node2D/instrybutor");
-//	GD.Print("overlaps? " + OverlapsBody(other));
+	var other = GetNode<Area2D>("/root/Node2D/instrybutor");
+	GD.Print(GlobalPosition);
+	GD.Print("overlaps? " + OverlapsArea(other));
   }
 }
