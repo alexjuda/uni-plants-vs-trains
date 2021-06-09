@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class train : Area2D
+public class train : PathFollow2D
 {
 	// Declare member variables here. Examples:
 	// private int a = 2;
@@ -11,7 +11,7 @@ public class train : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.pathFollow = GetNode<PathFollow2D>("/root/Node2D/Path2D/PathFollow2D");
+//		this.pathFollow = GetNode<PathFollow2D>("/root/Node2D/Path2D/PathFollow2D");
 	}
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,10 +19,11 @@ public class train : Area2D
   {
 //	var pos = this.pathFollow.GetGlobalPosition();
 	var speed = 200.0f;
-	this.pathFollow.Offset = this.pathFollow.Offset + speed * delta;
+	Offset = Offset + speed * delta;
+//	this.pathFollow.Offset = this.pathFollow.Offset + speed * delta;
 //	var pos = this.pathFollow.GetGlobalPosition();
-	var other = GetNode<Area2D>("/root/Node2D/instrybutor");
-	GD.Print(GlobalPosition);
-	GD.Print("overlaps? " + OverlapsArea(other));
+//	var other = GetNode<Area2D>("/root/Node2D/instrybutor");
+//	GD.Print(GlobalPosition);
+//	GD.Print("overlaps? " + OverlapsArea(other));
   }
 }
