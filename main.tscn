@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://instrybutor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bg2.png" type="Texture" id=2]
 [ext_resource path="res://instrybutor.cs" type="Script" id=3]
+[ext_resource path="res://main.cs" type="Script" id=4]
 [ext_resource path="res://Path2D.cs" type="Script" id=6]
 
 [sub_resource type="Curve2D" id=1]
@@ -12,6 +13,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="bg2" type="Sprite" parent="."]
 position = Vector2( 475.24, 281.707 )
