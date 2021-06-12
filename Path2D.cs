@@ -22,7 +22,12 @@ public class Path2D : Godot.Path2D
 //	timeElapsed += delta;
 	timeToNextSpawn -= delta;
 	if (timeToNextSpawn <= 0.0f) {
-		AddChild((ResourceLoader.Load("train.tscn") as PackedScene).Instance());
+		train train = (ResourceLoader.Load("train.tscn") as PackedScene).Instance() as train;
+		AddChild(train);
+		
+		main main = GetParent() as main;
+		main.registerTrain(train);
+		
 		timeToNextSpawn += 2.0f;
 	}
   }

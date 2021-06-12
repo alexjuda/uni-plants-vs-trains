@@ -17,7 +17,12 @@ public class Area2D : Godot.Area2D
 	if (OverlapsArea(instrybutor)) {
 		GD.Print("overlaps");
 		instrybutor.doDamage(1);
-		GetParent().QueueFree();
+		
+		train train = GetParent() as train;
+		train.QueueFree();
+		
+		main main = GetNode<main>("/root/Node2D");
+		main.unregisterTrain(train);
 	}
   }
 }
