@@ -22,7 +22,7 @@ public class plant : Node2D
 
 	public void shot(){
 		canShoot = false;
-		timeToShoot = 2.0f;
+		timeToShoot = 1.0f;
 	}
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.

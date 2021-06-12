@@ -74,7 +74,8 @@ public class main : Node2D
 	foreach(var bullet1 in bullets){
 		(var bullet, var train) = bullet1;
 		GD.Print(train);
-		bullet.Position += (train.Position - bullet.Position).Normalized();
+		var bulletSpeed = 250f;
+		bullet.Position += (train.Position - bullet.Position).Normalized() * bulletSpeed * delta;
 	}
   }
 }
