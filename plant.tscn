@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://plant.cs" type="Script" id=1]
+[ext_resource path="res://plant dog.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 20 )
@@ -9,26 +10,21 @@ extents = Vector2( 20, 20 )
 radius = 169.646
 
 [node name="Node2D" type="Node2D"]
-modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 0.172549, 0.333333, 0.560784, 1 )
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Area2D"]
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( 0.280609, -0.140312 )
+scale = Vector2( 1.40088, 1.32738 )
+texture = ExtResource( 2 )
 
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 0.436523, -0.523865 )
+position = Vector2( 0.155899, -0.804482 )
 shape = SubResource( 2 )
