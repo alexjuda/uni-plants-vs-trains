@@ -3,6 +3,17 @@ using System;
 
 public class bullet : Area2D
 {
+	
+	private bool toDelete = false;
+	
+	public void setToDelete() {
+		this.toDelete = true;
+	}
+	
+	public bool getToDelete() {
+		return this.toDelete;
+	}
+	
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";

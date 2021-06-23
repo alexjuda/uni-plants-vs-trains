@@ -15,11 +15,9 @@ public class Area2D : Godot.Area2D
   public override void _Process(float delta)
   {
 	if (OverlapsArea(instrybutor)) {
-		GD.Print("overlaps");
 		instrybutor.doDamage(1);
 		
 		train train = GetParent() as train;
-		train.QueueFree();
 		
 		main main = GetNode<main>("/root/Node2D");
 		main.unregisterTrain(train);

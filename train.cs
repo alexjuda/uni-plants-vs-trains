@@ -7,7 +7,22 @@ public class train : PathFollow2D
 	// private int a = 2;
 	// private string b = "text";
 	private PathFollow2D pathFollow;
+	private int hp = 10;
 
+	public int getHp(){
+		return this.hp;
+	}
+	
+	public bool doDamage(int damage) {
+		this.hp -= damage;
+		GD.Print("got damage, hp: " + hp);
+		return hp <= 0;
+	}
+	
+	public train() {
+		GD.Print("train created");
+	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,4 +41,6 @@ public class train : PathFollow2D
 //	GD.Print(GlobalPosition);
 //	GD.Print("overlaps? " + OverlapsArea(other));
   }
+
+
 }
