@@ -13,6 +13,11 @@ public class main : Node2D
 	private List<plant> plants = new List<plant>();
 	private List<Tuple<bullet, train>> bullets = new List<Tuple<bullet, train>>();
 	
+	public List<plant> getPlants() {
+		return this.plants;
+	}
+	
+	
 	public override void _Input(InputEvent @event)
 	{
 		// Mouse in viewport coordinates.

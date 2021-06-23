@@ -7,7 +7,7 @@ public class train : PathFollow2D
 	// private int a = 2;
 	// private string b = "text";
 	private PathFollow2D pathFollow;
-	private int hp = 10;
+	private int hp = 30;
 
 	public int getHp(){
 		return this.hp;
