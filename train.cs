@@ -4,7 +4,7 @@ using System;
 public class train : PathFollow2D
 {
 	private PathFollow2D pathFollow;
-	private int hp = 30;
+	private int hp = 0;
 	private float speed = 0.0f;
 
 	public int getHp(){

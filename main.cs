@@ -18,7 +18,7 @@ public class main : Node2D
 	
 	
 	private int destroyedTrains = 0;
-	private int money = 20;
+	private int money = 30;
 	
 	public List<plant> getPlants() {
 		return this.plants;
@@ -123,17 +123,17 @@ public class main : Node2D
 		this.updateLabels();
 			if (this.destroyedTrains % 10 == 0) {
 				foreach(Path2D path in paths) {
-					path.increaseTrainSpeed(20.0f);
+					path.decreaseTimeToNextSpawn(0.2f);
 				}
 			}
-			if (this.destroyedTrains % 20 == 0) {
+			if (this.destroyedTrains % 15 == 0) {
 				foreach(Path2D path in paths) {
 					path.increaseTrainHp(10);
 				}
 			}
-			if (this.destroyedTrains % 30 == 0) {
+			if (this.destroyedTrains % 20 == 0) {
 				foreach(Path2D path in paths) {
-					path.decreaseTimeToNextSpawn(0.1f);
+					path.increaseTrainSpeed(20.0f);
 				}
 			}
 		unregisterTrain(trainToRm);

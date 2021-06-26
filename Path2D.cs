@@ -7,10 +7,10 @@ public class Path2D : Godot.Path2D
 	// private int a = 2;
 	// private string b = "text";
 	private float timeElapsed = 0.0f;
-	private float timeToNextSpawn = 2.0f;
-	private float timeToNextSpawnValue = 2.0f;
+	private float timeToNextSpawn = 2.5f;
+	private float timeToNextSpawnValue = 2.5f;
 	private float trainSpeed = 100.0f;
-	private int trainHp = 30;
+	private int trainHp = 20;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -27,7 +27,7 @@ public class Path2D : Godot.Path2D
 	}
 	
 	public void decreaseTimeToNextSpawn(float diff) {
-		this.timeToNextSpawnValue -= diff; 
+		this.timeToNextSpawnValue -= diff;
 	}
 	
 
