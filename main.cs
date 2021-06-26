@@ -80,6 +80,7 @@ public class main : Node2D
 				bullet.Position = plant.Position;
 				AddChild(bullet);
 				bullets.Add(new Tuple<bullet, train>(bullet, train));
+				break;
 			}
 		}
 	}
