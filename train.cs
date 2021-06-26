@@ -16,12 +16,10 @@ public class train : PathFollow2D
 	
 	public bool doDamage(int damage) {
 		this.hp -= damage;
-		GD.Print("got damage, hp: " + hp);
 		return hp <= 0;
 	}
 	
 	public train() {
-		GD.Print("train created");
 	}
 	
 	public void setSpeed(float speed) {

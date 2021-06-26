@@ -49,7 +49,6 @@ public class main : Node2D
 	
 	public void registerTrain(train train) {
 		trains.Add(train);
-		GD.Print("Registered train + " + train);
 	}
 	
 	public void unregisterTrain(train train) {
@@ -61,7 +60,6 @@ public class main : Node2D
 			}
 		}
 		bullets.RemoveAll(tuple => tuple.Item2 == train);
-		GD.Print("Unegistered train + " + train);
 	}
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -113,7 +111,6 @@ public class main : Node2D
 
 	private void buyAndAddPlant(InputEventMouseButton eventMouseButton) {
 		if (eventMouseButton.Pressed && this.money >= 10) {
-			GD.Print("Mouse Click/Unclick at: ", eventMouseButton.Position);
 			plant plant = ((ResourceLoader.Load("plant.tscn") as PackedScene).Instance() as plant);
 			plants.Add(plant);
 			plant.Position = eventMouseButton.Position;
@@ -142,7 +139,6 @@ public class main : Node2D
 					path.decreaseTimeToNextSpawn(0.1f);
 				}
 			}
-		GD.Print("bullet remove train");
 		unregisterTrain(trainToRm);
 	}
 

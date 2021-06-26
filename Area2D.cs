@@ -20,7 +20,6 @@ public class Area2D : Godot.Area2D
 		
 		
 		main = GetNode<main>("/root/Node2D");
-		GD.Print(main);
 	}
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.

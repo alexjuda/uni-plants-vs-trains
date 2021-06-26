@@ -3,10 +3,7 @@ using System;
 
 public class plant : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-	
+
 	private bool canShoot = true;
 	private double timeToShoot;
 	private int hp = 100;
