@@ -82,7 +82,9 @@ public class main : Node2D
 	foreach(var bullet1 in bullets){
 		(var bullet, var train) = bullet1;
 		var bulletSpeed = 250f;
-		bullet.Position += (train.Position - bullet.Position).Normalized() * bulletSpeed * delta;
+		GD.Print("train " + train.Position);
+		GD.Print("bullet " + (train.Position - bullet.Position).Normalized() * bulletSpeed * delta);
+		bullet.Position += (train.GlobalPosition - bullet.GlobalPosition).Normalized() * bulletSpeed * delta;
 		var trainArea = train.GetNode<Godot.Area2D>("Area2D");
 		if (bullet.OverlapsArea(trainArea)) {
 			if (train.doDamage(10)) { // train nie zyje

@@ -9,7 +9,7 @@
 [sub_resource type="Curve2D" id=1]
 bake_interval = 4.5
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 717.108, 314.156, 0, 0, 0, 0, 331.128, 210.333, 0, 0, 0, 0, 290.394, 202.882, 0, 0, 0, 0, 213.397, 318.13, 0, 0, 0, 0, 68.8405, 315.149 )
+"points": PoolVector2Array( 0, 0, 0, 0, 717.108, 314.156, 0, 0, 0, 0, 536.048, 223.96, 0, 0, 0, 0, 376.242, 300.328, 0, 0, 0, 0, 290.394, 202.882, 0, 0, 0, 0, 247.549, 270.629, 0, 0, 0, 0, 158.453, 356.896, 0, 0, 0, 0, 68.8405, 315.149, 0, 0, 0, 0, -2.76709, 232.446, 0, 0, 0, 0, -148.431, 174.463, 0, 0, 0, 0, -199.343, 274.872 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -21,10 +21,11 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
 [node name="instrybutor" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64.6033, 304.249 )
+position = Vector2( 90.0592, 496.582 )
 script = ExtResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color( 0.501961, 0.6, 1, 0.701961 )
+position = Vector2( 291.328, 227.688 )
 curve = SubResource( 1 )
 script = ExtResource( 6 )
