@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://instrybutor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bg2.png" type="Texture" id=2]
@@ -9,7 +9,17 @@
 [sub_resource type="Curve2D" id=1]
 bake_interval = 4.5
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 717.108, 314.156, 0, 0, 0, 0, 536.048, 223.96, 0, 0, 0, 0, 376.242, 300.328, 0, 0, 0, 0, 290.394, 202.882, 0, 0, 0, 0, 247.549, 270.629, 0, 0, 0, 0, 158.453, 356.896, 0, 0, 0, 0, 68.8405, 315.149, 0, 0, 0, 0, -2.76709, 232.446, 0, 0, 0, 0, -148.431, 174.463, 0, 0, 0, 0, -199.343, 274.872 )
+"points": PoolVector2Array( 0, 0, 0, 0, 717.108, 314.156, 0, 0, 0, 0, 536.048, 223.96, 0, 0, 0, 0, 376.242, 300.328, 0, 0, 0, 0, 290.394, 202.882, 0, 0, 0, 0, 247.549, 270.629, 0, 0, 0, 0, 158.453, 356.896, 0, 0, 0, 0, 68.8405, 315.149, 0, 0, 0, 0, -26.8087, 289.014, 0, 0, 0, 0, -39.5367, 223.96, 0, 0, 0, 0, -148.431, 174.463, 0, 0, 0, 0, -199.343, 274.872 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 958.898, 262.144, 0, 0, 0, 0, 766.565, 223.96, 0, 0, 0, 0, 871.217, 371.039, 0, 0, 0, 0, 629.386, 279.115, 0, 0, 0, 0, 476.651, 208.404, 0, 0, 0, 0, 439.882, 310.227, 0, 0, 0, 0, 369.171, 222.546, 0, 0, 0, 0, 94.8137, 279.115 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 995.667, 20.3137, 0, 0, 0, 0, 866.974, 117.894, 0, 0, 0, 0, 719.896, 17.4853, 0, 0, 0, 0, 487.965, 21.728, 0, 0, 0, 0, 632.215, 96.6812, 0, 0, 0, 0, 359.272, 115.066, 0, 0, 0, 0, 312.602, 45.7696, 0, 0, 0, 0, 185.323, 30.2132, 0, 0, 0, 0, 234.821, 112.238, 0, 0, 0, 0, 93.3995, 81.1249 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -28,4 +38,20 @@ script = ExtResource( 3 )
 self_modulate = Color( 0.501961, 0.6, 1, 0.701961 )
 position = Vector2( 291.328, 227.688 )
 curve = SubResource( 1 )
+script = ExtResource( 6 )
+
+[node name="instrybutor2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 92.8877, 275.965 )
+script = ExtResource( 3 )
+
+[node name="instrybutor3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 91.4734, 77.9749 )
+script = ExtResource( 3 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource( 2 )
+script = ExtResource( 6 )
+
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource( 3 )
 script = ExtResource( 6 )
