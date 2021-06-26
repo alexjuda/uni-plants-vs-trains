@@ -8,6 +8,7 @@ public class main : Node2D
 	// private int a = 2;
 	// private string b = "text";
 	private const int PLANT_RANGE = 100;
+	private const int PLANT_COST = 10;
 	
 	private List<train> trains = new List<train>();
 	private List<plant> plants = new List<plant>();
@@ -107,12 +108,12 @@ public class main : Node2D
   }
 
 	private void buyAndAddPlant(InputEventMouseButton eventMouseButton) {
-		if (eventMouseButton.Pressed && this.money >= 10) {
+		if (eventMouseButton.Pressed && this.money >= PLANT_COST) {
 			plant plant = ((ResourceLoader.Load("plant.tscn") as PackedScene).Instance() as plant);
 			plants.Add(plant);
 			plant.Position = eventMouseButton.Position;
 			AddChild(plant);
-			this.money -= 20;
+			this.money -= PLANT_COST;
 			this.updateLabels();
 		}
 	}
