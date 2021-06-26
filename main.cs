@@ -102,10 +102,7 @@ public class main : Node2D
 	foreach(var trainToRm in trainsToRemove) {
 		deleteTrainByShooting(trainToRm);
 	}
-	
 
-	
-	
 	bullets.RemoveAll(tuple => tuple.Item1.getToDelete());
   }
 
