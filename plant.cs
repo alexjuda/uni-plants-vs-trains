@@ -35,7 +35,7 @@ public class plant : Node2D
 	
 	public bool doDamage(int damage) {
 		hp -= damage;
-		GD.Print("plant hp:" + hp);
+
 		
 		if (hp <= 0) {
 			this.QueueFree();
