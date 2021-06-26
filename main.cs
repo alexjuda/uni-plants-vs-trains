@@ -13,9 +13,12 @@ public class main : Node2D
 	private List<plant> plants = new List<plant>();
 	private List<Path2D> paths = new List<Path2D>();
 	private List<Tuple<bullet, train>> bullets = new List<Tuple<bullet, train>>();
+	private Godot.RichTextLabel label;
+	private Godot.RichTextLabel trainsLabel;
 	
 	
 	private int destroyedTrains = 0;
+	private int money = 20;
 	
 	public List<plant> getPlants() {
 		return this.plants;
@@ -29,6 +32,10 @@ public class main : Node2D
 		paths.Add(path1);
 		paths.Add(path2);
 		paths.Add(path3);
+		
+		label = GetNode<Godot.RichTextLabel>("/root/Node2D/MoneyLabel");
+		trainsLabel = GetNode<Godot.RichTextLabel>("/root/Node2D/TrainsDestroyedLabel");
+		this.updateLabels();
 	}
 	
 	
@@ -36,19 +43,8 @@ public class main : Node2D
 	{
 		// Mouse in viewport coordinates.
 		if (@event is InputEventMouseButton eventMouseButton) {
-			if (eventMouseButton.Pressed) {
-				GD.Print("Mouse Click/Unclick at: ", eventMouseButton.Position);
-				plant plant = ((ResourceLoader.Load("plant.tscn") as PackedScene).Instance() as plant);
-				plants.Add(plant);
-				plant.Position = eventMouseButton.Position;
-				AddChild(plant);
-			}
+			this.buyAndAddPlant(eventMouseButton);
 		}
-//		else if (@event is InputEventMouseMotion eventMouseMotion)
-//			GD.Print("Mouse Motion at: ", eventMouseMotion.Position);
-
-		// Print the size of the viewport.
-//		GD.Print("Viewport Resolution is: ", GetViewportRect().Size);
 	}
 	
 	public void registerTrain(train train) {
@@ -106,14 +102,7 @@ public class main : Node2D
 	}
 	
 	foreach(var trainToRm in trainsToRemove) {
-		this.destroyedTrains += 1;
-			if (this.destroyedTrains % 11 == 0) {
-				foreach(Path2D path in paths) {
-					path.increaseTrainSpeed(20.0f);
-				}
-			}
-		GD.Print("bullet remove train");
-		unregisterTrain(trainToRm);
+		deleteTrainByShooting(trainToRm);
 	}
 	
 
@@ -121,4 +110,44 @@ public class main : Node2D
 	
 	bullets.RemoveAll(tuple => tuple.Item1.getToDelete());
   }
+
+	private void buyAndAddPlant(InputEventMouseButton eventMouseButton) {
+		if (eventMouseButton.Pressed && this.money >= 10) {
+			GD.Print("Mouse Click/Unclick at: ", eventMouseButton.Position);
+			plant plant = ((ResourceLoader.Load("plant.tscn") as PackedScene).Instance() as plant);
+			plants.Add(plant);
+			plant.Position = eventMouseButton.Position;
+			AddChild(plant);
+			this.money -= 20;
+			this.updateLabels();
+		}
+	}
+	
+	private void deleteTrainByShooting(train trainToRm) {
+		this.destroyedTrains += 1;
+		this.money += 2;
+		this.updateLabels();
+			if (this.destroyedTrains % 10 == 0) {
+				foreach(Path2D path in paths) {
+					path.increaseTrainSpeed(20.0f);
+				}
+			}
+			if (this.destroyedTrains % 20 == 0) {
+				foreach(Path2D path in paths) {
+					path.increaseTrainHp(10);
+				}
+			}
+			if (this.destroyedTrains % 30 == 0) {
+				foreach(Path2D path in paths) {
+					path.decreaseTimeToNextSpawn(0.1f);
+				}
+			}
+		GD.Print("bullet remove train");
+		unregisterTrain(trainToRm);
+	}
+
+	private void updateLabels() {
+		label.Text = "Money: " + money.ToString();
+		trainsLabel.Text = "TrainsDestroyed: " + destroyedTrains.ToString();
+	}
 }

@@ -28,6 +28,10 @@ public class train : PathFollow2D
 		this.speed = speed;
 	}
 	
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

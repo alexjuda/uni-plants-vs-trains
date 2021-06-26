@@ -8,7 +8,9 @@ public class Path2D : Godot.Path2D
 	// private string b = "text";
 	private float timeElapsed = 0.0f;
 	private float timeToNextSpawn = 2.0f;
+	private float timeToNextSpawnValue = 2.0f;
 	private float trainSpeed = 100.0f;
+	private int trainHp = 30;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,6 +22,13 @@ public class Path2D : Godot.Path2D
 		this.trainSpeed += diff;
 	}
 	
+	public void increaseTrainHp(int diff) {
+		this.trainHp += diff;
+	}
+	
+	public void decreaseTimeToNextSpawn(float diff) {
+		this.timeToNextSpawnValue -= diff; 
+	}
 	
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,12 +40,13 @@ public class Path2D : Godot.Path2D
 	if (timeToNextSpawn <= 0.0f) {
 		train train = (ResourceLoader.Load("train.tscn") as PackedScene).Instance() as train;
 		train.setSpeed(this.trainSpeed);
+		train.setHp(this.trainHp);
 		AddChild(train);
 				
 		main main = GetParent() as main;
 		main.registerTrain(train);
 		
-		timeToNextSpawn += 2.0f;
+		timeToNextSpawn += timeToNextSpawnValue;
 	}
   }
 }

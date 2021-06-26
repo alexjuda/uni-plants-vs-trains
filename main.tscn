@@ -55,3 +55,21 @@ script = ExtResource( 6 )
 [node name="Path2D3" type="Path2D" parent="."]
 curve = SubResource( 3 )
 script = ExtResource( 6 )
+
+[node name="MoneyLabel" type="RichTextLabel" parent="."]
+margin_left = 1.58734
+margin_top = 560.353
+margin_right = 101.587
+margin_bottom = 600.353
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TrainsDestroyedLabel" type="RichTextLabel" parent="."]
+margin_left = 4.76215
+margin_top = 579.401
+margin_right = 154.762
+margin_bottom = 619.401
+__meta__ = {
+"_edit_use_anchors_": false
+}
