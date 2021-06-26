@@ -8,6 +8,7 @@ public class train : PathFollow2D
 	// private string b = "text";
 	private PathFollow2D pathFollow;
 	private int hp = 30;
+	private float speed = 0.0f;
 
 	public int getHp(){
 		return this.hp;
@@ -23,6 +24,10 @@ public class train : PathFollow2D
 		GD.Print("train created");
 	}
 	
+	public void setSpeed(float speed) {
+		this.speed = speed;
+	}
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -33,8 +38,7 @@ public class train : PathFollow2D
   public override void _Process(float delta)
   {
 //	var pos = this.pathFollow.GetGlobalPosition();
-	var speed = 200.0f;
-	Offset = Offset + speed * delta;
+	Offset = Offset + this.speed * delta;
 //	this.pathFollow.Offset = this.pathFollow.Offset + speed * delta;
 //	var pos = this.pathFollow.GetGlobalPosition();
 //	var other = GetNode<Area2D>("/root/Node2D/instrybutor");

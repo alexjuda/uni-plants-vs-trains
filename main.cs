@@ -11,10 +11,24 @@ public class main : Node2D
 	
 	private List<train> trains = new List<train>();
 	private List<plant> plants = new List<plant>();
+	private List<Path2D> paths = new List<Path2D>();
 	private List<Tuple<bullet, train>> bullets = new List<Tuple<bullet, train>>();
+	
+	
+	private int destroyedTrains = 0;
 	
 	public List<plant> getPlants() {
 		return this.plants;
+	}
+	
+	public override void _Ready() {
+		Path2D path1 = GetNode<Path2D>("/root/Node2D/Path2D");
+		Path2D path2 = GetNode<Path2D>("/root/Node2D/Path2D2");
+		Path2D path3 = GetNode<Path2D>("/root/Node2D/Path2D3");
+		
+		paths.Add(path1);
+		paths.Add(path2);
+		paths.Add(path3);
 	}
 	
 	
@@ -64,9 +78,7 @@ public class main : Node2D
 		var range = plant.GetNode<Godot.Area2D>("Area2D2");
 		foreach(var train in trains){
 			var trainArea = train.GetNode<Godot.Area2D>("Area2D");
-			//GD.Print(range.Position);
-			//GD.Print(train.Position);
-//			GD.Print(range.OverlapsArea(trainArea));
+			
 			if(range.OverlapsArea(trainArea)){
 				plant.shot();
 				var bullet = ((ResourceLoader.Load("bullet.tscn") as PackedScene).Instance() as bullet);
@@ -94,9 +106,18 @@ public class main : Node2D
 	}
 	
 	foreach(var trainToRm in trainsToRemove) {
+		this.destroyedTrains += 1;
+			if (this.destroyedTrains % 11 == 0) {
+				foreach(Path2D path in paths) {
+					path.increaseTrainSpeed(20.0f);
+				}
+			}
 		GD.Print("bullet remove train");
 		unregisterTrain(trainToRm);
 	}
+	
+
+	
 	
 	bullets.RemoveAll(tuple => tuple.Item1.getToDelete());
   }
